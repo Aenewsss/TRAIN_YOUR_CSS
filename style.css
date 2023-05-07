@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+body {
+    background-color: rgb(29, 29, 29);
+}
+
+#code-output {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    white-space: pre;
+    margin-top: 2em;
+    color: white;
+}
+
+textarea {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    resize: none;
+    border-radius: 15px;
+    background-color: transparent;
+    color: aliceblue;
+}
+
+textarea:focus-visible {
+    outline: none;
+}
+
+.editor {
+    display: flex;
+    margin-top: 4em;
+    gap: 0.5em;
+}
+
+.html-editor {
+    display: flex;
+    border: 2px solid rgb(99, 104, 162);
+    border-radius: 15px;
+    bottom: 10px;
+    background-color: transparent;
+    position: relative;
+    width: 50%;
+}
+
+.html-line-numbers {
+    width: 50px;
+    height: 90%;
+    background-color: transparent;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 14px;
+    line-height: 20px;
+    color: #dddddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.css-editor {
+    display: flex;
+    border: 2px solid rgb(41, 50, 155);
+    border-radius: 15px;
+    bottom: 10px;
+    background-color: transparent;
+    position: relative;
+    width: 50%;
+}
+
+.css-line-numbers {
+    width: 50px;
+    height: 90%;
+    background-color: transparent;
+    margin: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 14px;
+    line-height: 20px;
+    color: #dddddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#html-code-input {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 70px;
+}
+
+#css-code-input {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 20px;
+    padding-left: 70px;
+}
+
+h1 {
+    letter-spacing: 1px;
+    font-size: 3em;
+    font-family: 'Montserrat', sans-serif;
+    color: rgb(206, 18, 177);
+    text-align: center;
+    text-shadow: 4px 1px 0 rgba(255, 89, 241, 0.1);
+}
