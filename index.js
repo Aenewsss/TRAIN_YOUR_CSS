@@ -1,4 +1,4 @@
-import { insertCss, insertFirstLines, insertNewLines, scrollTextAndNumbers, setLimitLine, showCodeOutput, tabShortcut } from "./listenersFunctions.js";
+import { insertCss, insertFirstLines, insertNewLines, preventRemoveCss, scrollTextAndNumbers, setLimitLine, showCodeOutput, tabShortcut } from "./listenersFunctions.js";
 
 const htmlCodeInput = document.getElementById('html-code-input');
 const cssCodeInput = document.getElementById('css-code-input');
@@ -15,6 +15,7 @@ cssCodeInput.addEventListener('input', () => {
     setLimitLine()
     insertNewLines(cssCodeInput, cssLineNumbers)
     insertCss()
+    preventRemoveCss()
 });
 
 htmlCodeInput.addEventListener('scroll', () => scrollTextAndNumbers(htmlCodeInput, htmlLineNumbers));
@@ -27,7 +28,5 @@ cssCodeInput.addEventListener('keydown', (e) => {
 htmlCodeInput.addEventListener('keydown', (e) => {
     tabShortcut(e, htmlCodeInput)
 });
-
-
 
 insertFirstLines()

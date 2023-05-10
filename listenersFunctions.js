@@ -3,9 +3,17 @@ const cssCodeInput = document.getElementById('css-code-input');
 const htmlLineNumbers = document.querySelector('.html-line-numbers');
 const cssLineNumbers = document.querySelector('.css-line-numbers');
 const codeOutput = document.getElementById('code-output');
+const styleTag = document.getElementsByTagName('style')
 
 export function insertCss() {
     codeOutput.innerHTML += cssCodeInput.value;
+    removeLastStyleTags()
+}
+
+function removeLastStyleTags() {
+    for (let i = 0; i < styleTag.length - 1; i++) {
+        styleTag[i].remove();
+    }
 }
 
 export function showCodeOutput() {
@@ -31,13 +39,17 @@ export function insertFirstLines() {
     const htmlLineNumber = document.createElement('div');
     htmlLineNumbers.innerHTML = "";
     htmlLineNumber.innerText = '1';
+    htmlCodeInput.textContent = ' <!-- EXAMPLE -->\n<h1 class="text-red">Hello World</h1>';
     htmlLineNumbers.appendChild(htmlLineNumber);
 
     const cssLineNumber = document.createElement('div');
     cssLineNumbers.innerHTML = "";
     cssLineNumber.innerText = '1';
-    cssCodeInput.textContent = '<style>\n\t\n</style>'
+    cssCodeInput.textContent = '<style>\n\t.text-red{ color: red }\n</style>'
     cssLineNumbers.appendChild(cssLineNumber);
+
+    showCodeOutput()
+    insertCss()
 }
 
 export function tabShortcut(e, codeInput) {
@@ -61,10 +73,21 @@ export function tabShortcut(e, codeInput) {
 export function setLimitLine() {
     const maxLength = cssCodeInput.value.indexOf("</style>")
 
-    console.log(cssCodeInput.value.length, maxLength)
-
     if (cssCodeInput.value.length - 8 > maxLength) {
         cssCodeInput.value = cssCodeInput.value.substring(0, cssCodeInput.value.length - 1)
     }
 
+}
+
+export function preventRemoveCss() {
+    const currentValue = cssCodeInput.value;
+    const styleStartTag = "<style>";
+    const styleEndTag = "</style>";
+
+    if (!currentValue.startsWith(styleStartTag)) {
+        cssCodeInput.value = styleStartTag + currentValue;
+    }
+    if (!currentValue.endsWith(styleEndTag)) {
+        cssCodeInput.value = currentValue + styleEndTag;
+    }
 }
