@@ -91,3 +91,8 @@ export function preventRemoveCss() {
         cssCodeInput.value = currentValue + styleEndTag;
     }
 }
+
+export function copyToClipboard(codeInput){
+    codeInput.select()
+    document.execCommand('copy')
+}

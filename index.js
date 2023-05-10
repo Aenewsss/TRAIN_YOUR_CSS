@@ -1,9 +1,14 @@
-import { insertCss, insertFirstLines, insertNewLines, preventRemoveCss, scrollTextAndNumbers, setLimitLine, showCodeOutput, tabShortcut } from "./listenersFunctions.js";
+import { copyToClipboard, insertCss, insertFirstLines, insertNewLines, preventRemoveCss, scrollTextAndNumbers, setLimitLine, showCodeOutput, tabShortcut } from "./listenersFunctions.js";
 
 const htmlCodeInput = document.getElementById('html-code-input');
 const cssCodeInput = document.getElementById('css-code-input');
 const htmlLineNumbers = document.querySelector('.html-line-numbers');
 const cssLineNumbers = document.querySelector('.css-line-numbers');
+const cssCopyButton = document.getElementById('css-copy');
+const htmlCopyButton = document.getElementById('html-copy');
+
+cssCopyButton.addEventListener('click', () => { copyToClipboard(cssCodeInput) })
+htmlCopyButton.addEventListener('click', () => { copyToClipboard(htmlCodeInput) })
 
 htmlCodeInput.addEventListener('input', () => {
     insertNewLines(htmlCodeInput, htmlLineNumbers)
